@@ -2,13 +2,14 @@
 Esta es la version 2.0 de la anterior BackDoor base85, en esta nueva version estoy trabajando para poder anadir a la conexiones un cifrado AES. el malware todabia no se puede usar en modo trafico encriptado, pero si en trafico plano(sin encriptacion). <br>
 la back door usa una conexion inversa,  siendo el script server.py el ejecutar en la maquina del atacante y el exec.py en la maquina objetivo. ambos reciben por parametro el puerto para establecer la conexion. <br>
 Se a de configurar la direcion ip del archivo exec.py con su ip publica o direcion de tunel para la conexion. <br>
-El malware transmite los datos en formato json ya que son mas faciles de tratar, siendo la estructura parecida a la siguiente:<br>
-self._Comando = {<br>
-	"cursor" : self._Cursor,<br>
-	"comando-data":getoutput(self._Comando),  <br>
-	"tiempo actual" : self.Time,<br>
-	"ruta actual" : self._cwd,<br>
-}<br>
+El malware transmite los datos en formato json ya que son mas faciles de tratar, siendo la estructura parecida a la siguiente:<br><br>
+					self._Comando = {<br>
+							"cursor" : self._Cursor,<br>
+							"comando-data":getoutput(self._Comando),  <br>
+							"tiempo actual" : self.Time,<br>
+							"ruta actual" : self._cwd,<br>
+					}<br>
+<br>
 donde self.Time equivale al tiempo en la maaquina victima, self._cwd el directorio actual, self._Cursor el Cursor o barra de estado y getoutput(self._Comando) la salida del comando ejecutado.<br>
 
 la back door dispone de estos comando generales:  (proximamente mas...)<br>
